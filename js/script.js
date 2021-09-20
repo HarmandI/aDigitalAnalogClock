@@ -13,12 +13,19 @@ let dAujourdhui=new Date();
 let heures = dAujourdhui.getHours();
 let minutes= dAujourdhui.getMinutes();
 let secondes = dAujourdhui.getSeconds();
+console.log(heures);
 
 // Calculer de degré de mouvement de l'aiguille heure, de l'aiguille minute, de l'aiguille seconde
 // Hint : Tous les aiguilles doivent se déplacer chaque second selon un degré
-let secondeDegre=secondes*360/60;
-let minuteDegre=minutes*(360/60)+secondeDegre/60;
-let heureDegre = heures*(360/12)+minuteDegre/60+secondeDegre/3600;
+
+let timSec=heures*3600+minutes*60+secondes
+
+
+let secondeDegre=(timSec*(360/60));
+let minuteDegre= (timSec*(360/3600));
+let heureDegre = (timSec*(360/43200));
+
+
 
 // Déplacer les aiguilles 
 AIGUILLEHR.style.transform=`rotate(${heureDegre}deg)`;
@@ -29,4 +36,6 @@ AIGUILLESEC.style.transform=`rotate(${secondeDegre}deg)`;
 // Exercuter la fonction chaque second
 
 var interval = setInterval(demarrerLaMontre, 1000);
+
+
 
